@@ -7,12 +7,12 @@ function createOverPage(id, species_description) {
 }
 
 
-function displayOverPage() {
+function displayOverPage(id, age, species_description, date_and_time, borough, location, animal_condition, final_ranger_action) {
     let over_page = document.querySelector('#over_page');
     let story_title = document.querySelector('#story_title');
     let story_content = document.querySelector('#story_content');
-    story_title.innerHTML = "hfowhfoiw";
-    story_content.innerHTML = "ehffhfhjkfhjkehfjwehfwhfjwfhjkwefhjewkh";
+    story_title.innerHTML = `${species_description} #${id}'s Story`;
+    story_content.innerHTML = `I am a ${age} ${species_description}. It was ${date_and_time} that a human found me in ${borough}. I was hanging around near ${location} when he was call the ranger. My body condition was ${animal_condition}. I don't know why humans always make such a fuss about seeing me. Anyway, that human called the ranger. When the ranger arrived, I was ${final_ranger_action}.`;
 
     over_page.hidden = false;
     console.log("displaying animals");
@@ -29,41 +29,23 @@ base('Main table').select({
         //get records
         let species_description = record.get('Species Description');
         let id = record.get('Record ID');
+        let date_and_time = record.get('Date and time of Ranger response');
+        let age = record.get("Age");
+        let borough = record.get('Borough');
+        let location = record.get('Location');
+        let animal_condition = record.get('Animal Condition');
+        let final_ranger_action = record.get('Final Ranger Action');
         //insert into DOM
         let filler = document.createElement('button');
         filler.innerHTML = species_description + "   #" + id;
         let name_list = document.querySelector('#name_list');
         name_list.appendChild(filler);
-        filler.onclick = displayOverPage;
+        filler.onclick = function () {
+            displayOverPage(id, age, species_description, date_and_time, borough, location, animal_condition, final_ranger_action);
+        };
     });
     fetchNextPage();
 
 }, function done(err) {
     if (err) { console.error(err); return; }
 });
-
-
-
-// //doesn't work yet
-// base('Main table').select({
-//     filterByFormula: 'If({PEP Response},"True")',
-//     sort: [{ field: "PEP Response", direction: "desc" }],
-//     maxRecords: 100,
-//     view: "Grid view"
-// }).eachPage(function page(records, fetchNextPage) {
-//     // This function (`page`) will get called for each page of records.
-
-//     records.forEach(function (record) {
-//         let element = document.createElement('div');
-//         element.classList.add('age');
-//         element.classList.add('additional_memory');
-//         element.innerHTML = record.fields.Description;
-//         containerElement.appendChild(element);
-//         let date_and_time_record = record.get('Date and Time of initial call');
-//         let date_and_time_dom = document.querySelector('#date_and_time p');
-//         date_and_time_dom.innerHTML = date_and_time_record;
-//     });
-//     fetchNextPage();
-// }, function done(err) {
-//     if (err) { console.error(err); return; }
-// });

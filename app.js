@@ -2,36 +2,18 @@ let Airtable = require('airtable');
 let base = new Airtable({ apiKey: 'keyfpZwKVsD8rJeMF' }).base('appAYEE9wxTZn40KD');
 
 function createNameList(id, species_description) {
-    //insert into DOM
-    let filler = document.createElement('button');
-    filler.innerHTML = species_description + "   #" + id;
-    let name_list = document.querySelector('#name_list');
-    name_list.appendChild(filler);
-    filler.onclick = function () {
-        console.log(`${id}is clicked`);
-    };
 }
 function createOverPage(id, species_description) {
-    //creat a over page
-    let over_page = document.querySelector('#over_page');
-    let story_container = document.createElement('div');
-    over_page.appendChild(story_container);
-    story_container.setAttribute("id", id);
-    //create over page content
-    let story_title = document.createElement('p');
-    story_title.classList.add('story_title');
-    story_container.appendChild(story_title);
-    let story = document.createElement('p');
-    story.classList.add('story');
-    story_container.appendChild(story);
-    story.innerHTML = `I am a ${species_description}. Blablabla.`;
 }
 function showOverPage(over_page) {
     if (over_page.style.display === "none") {
-        x.style.display = "block";
+        over_page.style.display = "block";
+        console.log('over page is displaying');
     } else {
-        x.style.display = "none";
+        over_page.style.display = "none";
+        console.log('over page is hiden');
     }
+    // console.log(`${id} is clicked`);
 }
 
 base('Main table').select({
@@ -41,8 +23,30 @@ base('Main table').select({
         //get records
         let species_description = record.get('Species Description');
         let id = record.get('Record ID');
-        createNameList(id, species_description);
-        createOverPage(id, species_description);
+        //insert into DOM
+        let filler = document.createElement('button');
+        filler.innerHTML = species_description + "   #" + id;
+        let name_list = document.querySelector('#name_list');
+        name_list.appendChild(filler);
+
+        //creat a over page
+        let over_page = document.querySelector('#over_page');
+        let story_container = document.createElement('div');
+        over_page.appendChild(story_container);
+        story_container.setAttribute("id", id);
+        //create over page content
+        let story_title = document.createElement('p');
+        story_title.classList.add('story_title');
+        story_container.appendChild(story_title);
+        let story = document.createElement('p');
+        story.classList.add('story');
+        story_container.appendChild(story);
+        story.innerHTML = `I am a ${species_description}. Blablabla.`;
+
+        filler.onclick = showOverPage(over_page);
+
+        // createNameList(id, species_description);
+        // createOverPage(id, species_description);
     });
     fetchNextPage();
 

@@ -5,15 +5,17 @@ function createNameList(id, species_description) {
 }
 function createOverPage(id, species_description) {
 }
-function showOverPage(over_page) {
-    if (over_page.style.display === "none") {
-        over_page.style.display = "block";
-        console.log('over page is displaying');
-    } else {
-        over_page.style.display = "none";
-        console.log('over page is hiden');
-    }
-    // console.log(`${id} is clicked`);
+
+
+function displayOverPage() {
+    let over_page = document.querySelector('#over_page');
+    let story_title = document.querySelector('#story_title');
+    let story_content = document.querySelector('#story_content');
+    story_title.innerHTML = "hfowhfoiw";
+    story_content.innerHTML = "ehffhfhjkfhjkehfjwehfwhfjwfhjkwefhjewkh";
+
+    over_page.hidden = false;
+    console.log("displaying animals");
 }
 
 base('Main table').select({
@@ -28,22 +30,23 @@ base('Main table').select({
         filler.innerHTML = species_description + "   #" + id;
         let name_list = document.querySelector('#name_list');
         name_list.appendChild(filler);
+        filler.onclick = displayOverPage;
 
-        //creat a over page
-        let over_page = document.querySelector('#over_page');
-        let story_container = document.createElement('div');
-        over_page.appendChild(story_container);
-        story_container.setAttribute("id", id);
-        //create over page content
-        let story_title = document.createElement('p');
-        story_title.classList.add('story_title');
-        story_container.appendChild(story_title);
-        let story = document.createElement('p');
-        story.classList.add('story');
-        story_container.appendChild(story);
-        story.innerHTML = `I am a ${species_description}. Blablabla.`;
+        // //creat a over page
+        // let over_page = document.querySelector('#over_page');
+        // let story_container = document.createElement('div');
+        // over_page.appendChild(story_container);
+        // story_container.setAttribute("id", id);
+        // //create over page content
+        // let story_title = document.createElement('p');
+        // story_title.classList.add('story_title');
+        // story_container.appendChild(story_title);
+        // let story = document.createElement('p');
+        // story.classList.add('story');
+        // story_container.appendChild(story);
+        // story.innerHTML = `I am a ${species_description}. Blablabla.`;
 
-        filler.onclick = showOverPage(over_page);
+        // filler.onclick = showOverPage(over_page);
 
         // createNameList(id, species_description);
         // createOverPage(id, species_description);

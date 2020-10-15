@@ -17,6 +17,10 @@ function displayOverPage() {
     over_page.hidden = false;
     console.log("displaying animals");
 }
+function hideOverPage() {
+    let over_page = document.querySelector('#over_page');
+    over_page.hidden = true;
+}
 
 base('Main table').select({
     view: "Sky"
@@ -31,25 +35,6 @@ base('Main table').select({
         let name_list = document.querySelector('#name_list');
         name_list.appendChild(filler);
         filler.onclick = displayOverPage;
-
-        // //creat a over page
-        // let over_page = document.querySelector('#over_page');
-        // let story_container = document.createElement('div');
-        // over_page.appendChild(story_container);
-        // story_container.setAttribute("id", id);
-        // //create over page content
-        // let story_title = document.createElement('p');
-        // story_title.classList.add('story_title');
-        // story_container.appendChild(story_title);
-        // let story = document.createElement('p');
-        // story.classList.add('story');
-        // story_container.appendChild(story);
-        // story.innerHTML = `I am a ${species_description}. Blablabla.`;
-
-        // filler.onclick = showOverPage(over_page);
-
-        // createNameList(id, species_description);
-        // createOverPage(id, species_description);
     });
     fetchNextPage();
 

@@ -11,7 +11,8 @@ function displayOverPage(id, age, species_description, date_and_time, borough, l
     let over_page = document.querySelector('#over_page');
     let story_title = document.querySelector('#story_title');
     let story_content = document.querySelector('#story_content');
-    story_title.innerHTML = `${species_description} #${id}'s Story`;
+    story_title.innerHTML = `${species_description} <span style='color:grey'>#${id}</span>'s Story`;
+    //story content
     story_content.innerHTML = `I am a ${age} ${species_description}. It was ${date_and_time} that a human found me in ${borough}. I was hanging around near ${location} when he was call the ranger. My body condition was ${animal_condition}. I don't know why humans always make such a fuss about seeing me. Anyway, that human called the ranger. When the ranger arrived, I was ${final_ranger_action}.`;
 
     over_page.hidden = false;
@@ -37,8 +38,9 @@ base('Main table').select({
         let final_ranger_action = record.get('Final Ranger Action');
         //insert into DOM
         let filler = document.createElement('button');
-        filler.innerHTML = species_description + "   #" + id;
-        let name_list = document.querySelector('#name_list');
+        filler.classList.add("filler");
+        filler.innerHTML = `${species_description} <span style='color:grey'>#${id}</span>`;
+        let name_list = document.querySelector('#name_list_container');
         name_list.appendChild(filler);
         filler.onclick = function () {
             displayOverPage(id, age, species_description, date_and_time, borough, location, animal_condition, final_ranger_action);

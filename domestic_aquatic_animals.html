@@ -5,16 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Import font Mythos -->
+    <link rel="stylesheet" href="https://use.typekit.net/ijk7jyn.css">
+    <!-- Import font Chaparral -->
+    <link rel="stylesheet" href="https://use.typekit.net/ijk7jyn.css">
+    <!-- link to fontawesome -->
+    <script src="https://kit.fontawesome.com/bb91a0ff73.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div id="over_page" hidden>
-        <h4 id="story_title">A Story</h4>
-        <p id="story_content"></p>
-        <button onclick="hideOverPage()" id="close_button">X</button>
+        <div class="story_container">
+            <h4 id="story_title">A Story</h4>
+            <p id="story_content"></p>
+            <div class='center'>
+                <button onclick="hideOverPage()" class="button" id="close_button">
+                    <i class="fas fa-times fa-sm"></i> Close
+                </button>
+            </div>
+        </div>
     </div>
-    <div id="name_list">
-        <h3>Name List</h3>
+    <div id="name_list_container">
+        <h3 id="name_list_title">Animal Stories Register</h3>
     </div>
     <script src="airtable.browser.js"></script>
     <script src="app.js"></script>

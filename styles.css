@@ -2,7 +2,9 @@
 body {
     margin:0;
     background-color: rgb(237,224,204);
+    cursor: url(img/cursor.png), auto;
 }
+
 .center {
     display: flex;
     justify-content: center;
@@ -14,10 +16,14 @@ button {
     border: none; 
     color: rgb(237,224,204);
     padding: 10px 16px; 
-    cursor: pointer; 
+    text-decoration: none;
+    font-family: giulia-plain, sans-serif;
+    font-weight: 300;
+    font-style: normal;
 }
 button:hover {
     background-color: rgb(182, 0, 0);
+    cursor: url(img/pointer.png), auto; 
 }
 
 h2 {
@@ -36,7 +42,6 @@ h4 {
     font-size: 2em;
     color: rgb(182, 0, 0); 
 }
-
 .background_img {
     width:96%;
     height:92%;
@@ -61,19 +66,20 @@ h4 {
     border-radius: 50%;
 }
 .left_icon:hover {
-    cursor: pointer; 
     background-color: rgb(189, 96, 84); 
+    cursor: url(img/pointer.png), auto; 
 }
 .right_icon{
     grid-area: 1 / 2 / 2 / 3;
     border-radius: 50%;
 }
 .right_icon:hover {
-    cursor: pointer; 
     background-color: rgb(189, 96, 84); 
+    cursor: url(img/pointer.png), auto; 
 }
 
 .button_img{
+    cursor:  url(img/pointer.png), auto; 
     height:400px;
     width:auto;
 }
@@ -87,25 +93,26 @@ h4 {
     background-color: rgb(237,224,204);
     z-index: 2;
 }
-
 .story_container {
     margin:15%;
 }
-
 #story_title {
 }
-
 #story_content {
     text-indent: 40px;
-    font-family: chaparral-pro,serif;
-    font-weight: 400;
+    font-family: giulia-plain, sans-serif;
+    font-weight: 300;
     font-style: normal;
 }
-
 #close_button{
-    margin:5%;
-    font-size: 16px; 
+    margin:5%; 
+    font-size: 20px; 
     width:100%;
+}
+#back_icon {
+    width:30px;
+    height: auto;
+    margin-right: 5px;
 }
 
 /* name list styles */
@@ -128,9 +135,6 @@ h4 {
 .filler{
     margin:5px;
     font-size: 15px; 
-    font-family: chaparral-pro,serif;
-    font-weight: 400;
-    font-style: normal;
     border-radius: 20px 0 0 20px;
 }
 /* custermized scrollbar */

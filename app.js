@@ -23,31 +23,33 @@ function hideOverPage() {
     over_page.hidden = true;
 }
 
-base('Main table').select({
-    view: "Sky"
-}).eachPage(function page(records, fetchNextPage) {
-    records.forEach(function (record) {
-        //get records
-        let species_description = record.get('Species Description');
-        let id = record.get('Record ID');
-        let date_and_time = record.get('Date and time of Ranger response');
-        let age = record.get("Age");
-        let borough = record.get('Borough');
-        let location = record.get('Location');
-        let animal_condition = record.get('Animal Condition');
-        let final_ranger_action = record.get('Final Ranger Action');
-        //insert into DOM
-        let filler = document.createElement('button');
-        filler.classList.add("filler");
-        filler.innerHTML = `◉ ${species_description} <span style='color:grey'>#${id}</span>`;
-        let name_list = document.querySelector('#name_list_container');
-        name_list.appendChild(filler);
-        filler.onclick = function () {
-            displayOverPage(id, age, species_description, date_and_time, borough, location, animal_condition, final_ranger_action);
-        };
-    });
-    fetchNextPage();
+function extractData(view_type) {
+    base('Main table').select({
+        view: view_type
+    }).eachPage(function page(records, fetchNextPage) {
+        records.forEach(function (record) {
+            //get records
+            let species_description = record.get('Species Description');
+            let id = record.get('Record ID');
+            let date_and_time = record.get('Date and time of Ranger response');
+            let age = record.get("Age");
+            let borough = record.get('Borough');
+            let location = record.get('Location');
+            let animal_condition = record.get('Animal Condition');
+            let final_ranger_action = record.get('Final Ranger Action');
+            //insert into DOM
+            let filler = document.createElement('button');
+            filler.classList.add("filler");
+            filler.innerHTML = `◉ ${species_description} <span style='color:grey'>#${id}</span>`;
+            let name_list = document.querySelector('#name_list_container');
+            name_list.appendChild(filler);
+            filler.onclick = function () {
+                displayOverPage(id, age, species_description, date_and_time, borough, location, animal_condition, final_ranger_action);
+            };
+        });
+        fetchNextPage();
 
-}, function done(err) {
-    if (err) { console.error(err); return; }
-});
+    }, function done(err) {
+        if (err) { console.error(err); return; }
+    });
+}

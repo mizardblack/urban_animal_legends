@@ -7,7 +7,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width:100%;
 }
 
 button {
@@ -21,12 +20,12 @@ button:hover {
     background-color: rgb(182, 0, 0);
 }
 
-h3 {
+h2 {
     text-align: center;
     font-family: mythos-std,sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 3em;
+    font-size: 4em;
     color: rgb(182, 0, 0);
 }
 h4 {
@@ -38,6 +37,47 @@ h4 {
     color: rgb(182, 0, 0); 
 }
 
+.background_img {
+    width:96%;
+    height:92%;
+    position: fixed;
+    left:2%;
+    top:4%;
+    z-index: -2;
+}
+
+/* animal icons pages styles */
+.animal_icons_container {
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: 1fr; 
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
+    width:70%;
+    padding:12% 15%;
+}
+.left_icon {
+    grid-area: 1 / 1 / 2 / 2;
+    border-radius: 50%;
+}
+.left_icon:hover {
+    cursor: pointer; 
+    background-color: rgb(189, 96, 84); 
+}
+.right_icon{
+    grid-area: 1 / 2 / 2 / 3;
+    border-radius: 50%;
+}
+.right_icon:hover {
+    cursor: pointer; 
+    background-color: rgb(189, 96, 84); 
+}
+
+.button_img{
+    height:400px;
+    width:auto;
+}
+
 /* overpage styles */
 #over_page {
     position: fixed;
@@ -45,6 +85,7 @@ h4 {
     width: 100%;
     top:0;
     background-color: rgb(237,224,204);
+    z-index: 2;
 }
 
 .story_container {
@@ -64,13 +105,25 @@ h4 {
 #close_button{
     margin:5%;
     font-size: 16px; 
+    width:100%;
 }
 
 /* name list styles */
-#name_list_container {
-    margin:10%;
+#name_list{
+    position: fixed;
+    height: 74vh;
+    width: 80vw;
+    top:13vh;
+    left:13vw;
+    text-align: center;
 }
 #name_list_title {
+}
+#name_list_container {
+    max-width: 100%;
+    max-height: 100%;
+    overflow: scroll;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 .filler{
     margin:5px;
@@ -80,4 +133,23 @@ h4 {
     font-style: normal;
     border-radius: 20px 0 0 20px;
 }
-
+/* custermized scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgb(172, 165, 153); 
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(189, 96, 84); 
+} 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background:  rgb(182, 0, 0); 
+}
+::-webkit-scrollbar-track:hover {
+    background:  rgb(197, 183, 161); 
+}

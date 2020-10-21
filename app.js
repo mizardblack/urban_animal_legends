@@ -39,7 +39,7 @@ base('Main table').select({
         //insert into DOM
         let filler = document.createElement('button');
         filler.classList.add("filler");
-        filler.innerHTML = `${species_description} <span style='color:grey'>#${id}</span>`;
+        filler.innerHTML = `◉ ${species_description} <span style='color:grey'>#${id}</span>`;
         let name_list = document.querySelector('#name_list_container');
         name_list.appendChild(filler);
         filler.onclick = function () {

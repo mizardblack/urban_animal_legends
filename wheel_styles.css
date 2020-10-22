@@ -1,7 +1,6 @@
 .wheel {
   position: absolute;
   margin: 0%;
-  /* top: -25%; */
   padding: 0;
   width: 16em; height: 16em;
   clip-path: circle(50% at 50% 50%);

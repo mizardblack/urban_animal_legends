@@ -1,12 +1,6 @@
 let Airtable = require('airtable');
 let base = new Airtable({ apiKey: 'keyfpZwKVsD8rJeMF' }).base('appAYEE9wxTZn40KD');
 
-function createNameList(id, species_description) {
-}
-function createOverPage(id, species_description) {
-}
-
-
 function displayOverPage(id, age, species_description, date_and_time, borough, location, animal_condition, final_ranger_action) {
     let over_page = document.querySelector('#over_page');
     let story_title = document.querySelector('#story_title');
@@ -53,3 +47,4 @@ function extractData(view_type) {
         if (err) { console.error(err); return; }
     });
 }
+

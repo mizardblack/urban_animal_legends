@@ -1,0 +1,71 @@
+.wheel {
+  position: absolute;
+  margin: 0%;
+  /* top: -25%; */
+  padding: 0;
+  width: 16em; height: 16em;
+  clip-path: circle(50% at 50% 50%);
+  border: solid 10px;
+  border-radius: 50%;
+  list-style: none;
+  background-color: rgb(237, 224, 204);
+  transition: 1s;
+}
+.wheel:hover {
+  transform: translateY(50%);
+  transition: 2s;
+}
+
+.arc {
+  overflow: hidden;
+  position: absolute;
+  bottom: 50%; left: 50%;
+  width: 100%; height: 100%;
+  transform-origin: 0% 100%; 
+  clip-path: polygon(0 0, 100% 0, 100% 43%, 0% 100%);
+
+}
+
+.arc:first-child {
+  transform: rotate(0deg);
+  z-index: 0;
+}
+.arc:nth-child(2) {
+  transform: rotate(60deg);
+  z-index: 1;
+}
+.arc:nth-child(3) {
+  transform: rotate(120deg);
+  z-index: 2;
+}
+.arc:nth-child(4) {
+  transform: rotate(180deg);
+  z-index: 3;
+}
+.arc:nth-child(5) {
+  transform: rotate(240deg);
+  z-index: 4;
+}
+.arc:last-child {
+  transform: rotate(300deg);
+  z-index: 5;
+}
+
+.arc-contents {
+  position: absolute;
+  left: 0%;
+  top:0%;
+  width: 100%; height: 100%;
+  /* background-color: rgb(237, 224, 204); */
+  padding: 53% 0;
+  border:solid 4px;
+}
+.arc-contents:hover { 
+  background-color: rgb(189, 96, 84);}
+
+.nav_button_img{
+  transform: rotate(15deg);
+  cursor:  url(img/pointer.png), auto; 
+  max-height:30%;
+  width:auto;
+}

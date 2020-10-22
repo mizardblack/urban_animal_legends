@@ -135,7 +135,7 @@ h4 {
 .filler{
     margin:5px;
     font-size: 15px; 
-    border-radius: 20px 0 0 20px;
+    clip-path: polygon(7% 0%, 100% 0, 100% 100%, 7% 100%, 0% 80%, 0% 20%);
 }
 /* custermized scrollbar */
 /* width */
@@ -157,3 +157,4 @@ h4 {
 ::-webkit-scrollbar-track:hover {
     background:  rgb(197, 183, 161); 
 }
+

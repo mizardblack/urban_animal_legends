@@ -42,9 +42,12 @@
     <script src="app.js"></script>
     <script>
         if (location.hash.length > 1) {
-            let view = location.hash.substring(1);
-            extractData(view);
-            document.title = "Animals Live in " + view;
+            let view_name = location.hash.substring(1);
+            let what_kind = view_name.split("_")[0];
+            let where = view_name.split("_")[1];
+            console.log(view_name, what_kind, where);
+            extractData(view_name);
+            document.title = what_kind + " Animals Living in " + where;
         }
     </script>
 </body>
